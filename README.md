@@ -2,6 +2,18 @@
 
 A browser party game for 2–6 friends. Move to vote on the next rule; the losing voters earn one extra dash. Arabic first, with English throughout. Three server-authoritative games: falling tiles, battery collection, and symbol doors.
 
+![CHAOS ROOM — Desktop Home](docs/previews/desktop-home.png)
+
+## Screenshots
+
+| Falling Tiles (`البلاط بيقع`) | Battery Bandits (`خطف البطاريات`) |
+| :---: | :---: |
+| ![Falling Tiles Arena](docs/previews/tile-arena.png) | ![Battery Bandits Arena](docs/previews/battery-arena.png) |
+
+| Fake Door (`الباب المزيف`) | Champions Podium (`أبطال الفوضى`) |
+| :---: | :---: |
+| ![Fake Door Arena](docs/previews/door-arena.png) | ![Match Results Podium](docs/previews/match-results.png) |
+
 ## Run locally
 
 Requires Node.js 22.18+ and npm. From the repository root:
