@@ -1,0 +1,33 @@
+{
+  "name": "chaos-room",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n SERVER,WEB \"npm run dev -w @chaos/server\" \"npm run dev -w @chaos/web\"",
+    "dev:db": "tsx scripts/dev-with-mongo.ts",
+    "check:deploy": "tsx scripts/check-deploy.ts",
+    "build": "npm run build -w @chaos/server && npm run build -w @chaos/web",
+    "typecheck": "tsc --noEmit -p apps/server && tsc --noEmit -p apps/web && tsc --noEmit -p tsconfig.tools.json",
+    "test": "vitest run",
+    "test:mongo": "vitest run --config vitest.mongo.config.ts",
+    "test:e2e": "playwright test",
+    "test:load": "tsx scripts/load.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "@types/node": "22.20.5",
+    "concurrently": "9.2.5",
+    "prettier": "3.10.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

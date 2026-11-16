@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: chaos-room-game-server
+    runtime: node
+    region: frankfurt
+    plan: starter
+    numInstances: 1
+    buildCommand: npm ci && npm run build -w @chaos/server
+    startCommand: npm run start -w @chaos/server
+    healthCheckPath: /health
+    maxShutdownDelaySeconds: 300
+    autoDeployTrigger: off
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: WEB_ORIGIN
+        sync: false
+      - key: API_ORIGIN
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: MAX_ROOMS
+        value: 10
